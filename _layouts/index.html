@@ -25,18 +25,12 @@
         </ul>
 
         <div id="tags__bottom">
-          <a href="mailto:place_your_email_address_here" id="icon-email" class="tags-btn fontello"></a>
+          <a href="mailto:408768085@qq.com" id="icon-email" class="tags-btn fontello"></a>
           <a href="{{ site.baseurl }}/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
         </div>
       </nav> <!-- end #tags -->
 
       <div id="posts-list">
-        <form action="" id="search-form">
-          <a href="{{ site.baseurl }}/index.html" id="mobile-avatar"></a>
-          <!-- NOTE: input field is disabled by default -->
-          <input id="search-input" type="text" placeholder="Search..." disabled >
-        </form>
-
         <nav id="pl__container">
         {% for post in site.posts %}
           <a class="{{ post.categories }} pl__all" href="{{ post.url }}"><span class="pl__circle"></span><span class="pl__title">{{ post.title }}</span><span class="pl__date">{{ post.date | date: "%b %Y" }}</span></a>
@@ -52,7 +46,7 @@
 
       <div id="post__toc-trigger">
         <div id="post__toc">
-          <span id="post__toc-title">Table of Contents</span>
+          <span id="post__toc-title">目录</span>
           <ul id="post__toc-ul"></ul>
         </div>
       </div>
