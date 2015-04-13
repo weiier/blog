@@ -11,12 +11,12 @@ if ($(window).width() <= 1280) {
 }
 
 // Variables
-    tag1       = $('.ALL'),
-    tag2       = $('.ONE'),
-    tag3       = $('.TWO'),
-    tag4       = $('.THR'),
-    tag5       = $('.FOU'),
-    tag6       = $('.FIV');
+    tag1       = $('.all'),
+    tag2       = $('.one'),
+    tag3       = $('.two'),
+    tag4       = $('.thr'),
+    tag5       = $('.fou'),
+    tag6       = $('.fiv');
 var sidebar    = $('#sidebar'),
     container  = $('#post'),
     content    = $('#pjax'),
