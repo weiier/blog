@@ -11,12 +11,12 @@ if ($(window).width() <= 1280) {
 }
 
 // Variables
-    tag1       = $('.所有'),
-    tag2       = $('.壹'),
-    tag3       = $('.贰'),
-    tag4       = $('.叁'),
-    tag5       = $('.肆'),
-    tag6       = $('.伍');
+    tag1       = $('.ALL'),
+    tag2       = $('.ONE'),
+    tag3       = $('.TWO'),
+    tag4       = $('.THR'),
+    tag5       = $('.FOU'),
+    tag6       = $('.FIV');
 var sidebar    = $('#sidebar'),
     container  = $('#post'),
     content    = $('#pjax'),
