@@ -12,7 +12,7 @@ if ($(window).width() <= 1280) {
 
 // Variables
     tag1       = $('.pl__all'),
-    tag2       = $('.壹'),
+    tag2       = $('.start'),
     tag3       = $('.two'),
     tag4       = $('.thr'),
     tag5       = $('.fou'),
