@@ -87,7 +87,35 @@ a {
 	#home a:hover:after{
 		transform:scaleX(1)
 	}
-  
+  	#home .label {
+	  display: inline;
+	  padding: .2em .6em .3em;
+	  font-size: 75%;
+	  font-weight: bold;
+	  line-height: 1;
+	  color: #ffffff;
+	  text-align: center;
+	  white-space: nowrap;
+	  vertical-align: baseline;
+	  border-radius: .25em;
+	}
+	
+	#home .label:empty {
+	  display: none;
+	}
+	
+	#home .label-primary {
+	  background-color: #428bca;
+	}
+	
+	#home .label-success {
+	  background-color: #5cb85c;
+	}
+	
+	#home .label-info {
+	  background-color: #5bc0de;
+	}
+
   
 /*---------------------------------*\
    Sidebar => Tags & Posts List
