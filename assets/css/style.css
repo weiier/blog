@@ -55,6 +55,14 @@ a {
                 font-size: 24px;
                 line-height: 1.8;
 	}
+	#home > ul {
+	    margin: 0px 0px 100px;
+	    padding: 0px;
+	    list-style: outside none none;
+	}
+	#home > ul > li {
+	    margin-bottom: 0.75em;
+	}
 	#home a {
 		  position: relative;
 		  color: #4e6584;
