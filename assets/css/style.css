@@ -48,7 +48,7 @@ a {
   transition: color .35s; }
 
 /*---------------------------------*\
-   extend by dr.zhang
+   extend by weiier 
 \*---------------------------------*/
 	#home {
 		text-align: center;
@@ -62,6 +62,9 @@ a {
 	}
 	#home > ul > li {
 	    margin-bottom: 0.75em;
+	}
+	#home > h1 + p {
+	    margin: 0px 0px 2.5em;
 	}
 	#home a {
 		  position: relative;
