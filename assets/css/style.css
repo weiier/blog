@@ -64,7 +64,7 @@ a {
 	    margin-bottom: 0.75em;
 	}
 	#home > h1 + p {
-	    margin: 0px 0px 2.5em;
+	    margin: -15px 0px 0px 0px;
 	}
 	#home a {
 		  position: relative;
