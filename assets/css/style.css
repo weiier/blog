@@ -50,14 +50,14 @@ a {
 /*---------------------------------*\
    extend by dr.zhang
 \*---------------------------------*/
-	#home a {
+	#post__content a {
 		  position: relative;
 		  color: #4e6584;
 		  text-decoration: none;
 		  text-shadow: 1px 1px 0 #fff;
 		  outline: none;
 		}
-	#home a:after {
+	#post__content a:after {
 	  content: "";
 	  position: absolute;
 	  left: 0;
@@ -68,7 +68,7 @@ a {
 	  transform: scaleX(0);
 	  transition: transform 0.5s ease;
 	}
-	#home a:hover:after{
+	#post__content a:hover:after{
 		transform:scaleX(1)
 	}
   
