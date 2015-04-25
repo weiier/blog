@@ -50,6 +50,9 @@ a {
 /*---------------------------------*\
    extend by dr.zhang
 \*---------------------------------*/
+	#home {
+		text-align: center;
+	}
 	#home a {
 		  position: relative;
 		  color: #4e6584;
