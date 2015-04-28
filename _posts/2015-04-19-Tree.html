@@ -14,7 +14,7 @@ categories: leetcode
  * }
  */
 {% endhighlight%}
-<h2>Maximum Depth of Binary Tree </h2>
+<h2><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank">Maximum Depth of Binary Tree </a></h2>
 <p>Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
 <p>Recursive Solution:</p>
 <p>(1)if the binary tree is null, return 0</p>
@@ -31,7 +31,7 @@ var maxDepth = function(root) {
     return left>right? (left+1):(right+1);
 };
 {% endhighlight%}
-<h2>Minimum Depth of Binary Tree</h2>
+<h2><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/" target="_blank">Minimum Depth of Binary Tree</a></h2>
 <p>Given a binary tree, find its minimum depth.The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
 <p>Solution:The solution is similar to the above one, but there is one point that we should pay attention to: when the left child or right child is null, we should return the depth of the other child, instead of the minimum depth of them(0,of course).</p>
 {% highlight js %}
@@ -48,7 +48,7 @@ var minDepth = function(root) {
     return left > right ? (right+1):(left+1);
 };
 {% endhighlight%}
-<h2>Same Tree</h2>
+<h2><a href="https://leetcode.com/problems/same-tree/" target="_blank">Same Tree</a></h2>
 <p> Given two binary trees, write a function to check if they are equal or not.Two binary trees are considered equal if they are structurally identical and the nodes have the same value. </p>
 <p>Recursive Solution:</p>
 <p>(1)if both of them is null ,return true</p>
@@ -66,5 +66,79 @@ var isSameTree = function(p, q) {
     var resultL = isSameTree(p.left,q.left);
     var resultR = isSameTree(p.right,q.right);
     return (resultL && resultR);
+};
+{% endhighlight%}
+<h2><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">Binary Tree Level Order Traversal</a></h2>
+<p>Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).</p>
+<p>Solution:We usually use queue to travel the binary tree in level order.When we visit a node ,we first get the node from the top of the queue,visit,and then push its left child and right child to the queue.In js, we use the method of shift() and push() to imitate queue. And we use "count" to record the length of every level.</p>
+{% highlight js %}
+/**
+ * @param {TreeNode} root
+ * @returns {number[][]}
+ */
+var levelOrder = function(root) {
+	var list = [];
+	var result = new Array();
+	var count = 1;
+	var i = 0;
+	if(root == null) return list;
+	list.push(root);
+	while(list.length != 0) {
+		i = 0;
+		var temp = new Array();
+		for (var j=0;j<count;j++) {
+			var node = list.shift();
+			temp.push(node.val);
+			if(node.left != null ) {
+				list.push(node.left);
+				i++;
+			}
+			if(node.right != null ) {
+				list.push(node.right);
+				i++;
+			}
+		}
+		count = i;
+		result.push(temp);
+	}
+	return result;
+};
+{% endhighlight%}
+<h2><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/" target="_blank">Binary Tree Level Order Traversal II</a><h2>
+<p>Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).</p>
+<p>Solution:this is similar to the above one, we just need to reverse the array when we get the result.</p>
+{% highlight js %}
+/**
+ * @param {TreeNode} root
+ * @returns {number[][]}
+ */
+var levelOrderBottom = function(root) {
+    
+		var list = [];
+		var result = new Array();
+		var count = 1;
+		var i = 0;
+		if(root == null) return list;
+		list.push(root);
+		while(list.length != 0) {
+			i = 0;
+			var temp = new Array();
+			for (var j=0;j<count;j++) {
+				var node = list.shift();
+				temp.push(node.val);
+				if(node.left != null ) {
+					list.push(node.left);
+					i++;
+				}
+				if(node.right != null ) {
+					list.push(node.right);
+					i++;
+				}
+			}
+			count = i;
+			result.push(temp);
+		}
+		return result.reverse();
+	
 };
 {% endhighlight%}
