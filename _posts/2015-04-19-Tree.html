@@ -1,18 +1,70 @@
 ---
 layout: post
-title: algorithms about tree (I)
-categories: start
+title: Algorithms about tree (I)
+categories: leetcode
 ---
 <p>Tree is an important data structure, especially the binary tree. The definition of binary tree is recursive,so we can solve most questions about binary tree using recursive thoughts. Today I will show some easy algorithms about binary tree.</p>
-<p>We use java programming language and the binary tree node defined as follows:</p>
+<p>We use javascript programming language and the binary tree node defined as follows:</p>
 {% highlight java %}
 /**
  * Definition for binary tree
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
  * }
  */
+{% endhighlight%}
+<h2>Maximum Depth of Binary Tree </h2>
+<p>Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<p>Recursive Solution:</p>
+<p>(1)if the binary tree is null, return 0</p>
+<p>(2)else return max(the_depth_of_left_child, the_depth_of_right_child )+1</p>
+{% highlight js %}
+/**
+ * @param {TreeNode} root
+ * @returns {number}
+ */
+var maxDepth = function(root) {
+    if(root == null) return 0;
+    var left = maxDepth(root.left);
+    var right = maxDepth(root.right);
+    return left>right? (left+1):(right+1);
+};
+{% endhighlight%}
+<h2>Minimum Depth of Binary Tree</h2>
+<p>Given a binary tree, find its minimum depth.The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+<p>Solution:The solution is similar to the above one, but there is one point that we should pay attention to: when the left child or right child is null, we should return the depth of the other child, instead of the minimum depth of them(0,of course).</p>
+{% highlight js %}
+/**
+ * @param {TreeNode} root
+ * @returns {number}
+ */
+var minDepth = function(root) {
+    if(root == null)return 0;
+    var left = minDepth(root.left);
+    var right =  minDepth(root.right);
+    if(left == 0 && right != 0) return right+1;
+    if(left != 0 && right == 0) return left+1;
+    return left > right ? (right+1):(left+1);
+};
+{% endhighlight%}
+<h2>Same Tree</h2>
+<p> Given two binary trees, write a function to check if they are equal or not.Two binary trees are considered equal if they are structurally identical and the nodes have the same value. </p>
+<p>Recursive Solution:</p>
+<p>(1)if both of them is null ,return true</p>
+<p>(2)else if only one of them is null or both is not null but their value is different,return false</p>
+<p>(3)if their value are equal, we turn to judge their left child and right child.
+{% highlight js %}
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @returns {boolean}
+ */
+var isSameTree = function(p, q) {
+    if(p == null && q == null)return true;
+    else if(p == null || q == null || p.val != q.val)return false;
+    var resultL = isSameTree(p.left,q.left);
+    var resultR = isSameTree(p.right,q.right);
+    return (resultL && resultR);
+};
 {% endhighlight%}
