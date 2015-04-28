@@ -1,0 +1,74 @@
+---
+layout: post
+title: Algorithms about tree (II)
+categories: leetcode
+---
+<p>We continue our discussion about tree.</p>
+<p>In this time,we use java programming language and the binary tree node defined as follows:</p>
+{% highlight java %}
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+ {% endhighlight%}
+<p>No matter what languages we use, the algorithms are the same.Of course, recursive solution is trivial, when we have time, we could do it iteratively</p>
+<p>Solution for the following questions:to travel a tree in recursive way, when to visit the "root node" is the key point and it decide the travel order is preorder,inorder or postorder. </p>
+ <h2><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank">Binary Tree Preorder Traversal</a></h2>
+<p>Given a binary tree, return the preorder traversal of its nodes' values.</p>
+{% highlight java %}
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        if(root == null) return result;
+        else {
+            List<Integer> resultL = preorderTraversal(root.left);
+            List<Integer> resultR = preorderTraversal(root.right);
+			result.add(root.val);
+            result.addAll(resultL);
+            result.addAll(resultR);
+        }
+        return result;   
+    }
+}
+{% endhighlight%}
+<h2><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank">Binary Tree Inorder Traversal </a></h2>
+<p>Given a binary tree, return the inorder traversal of its nodes' values.</p>
+{% highlight java %}
+public class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+         List<Integer> result = new ArrayList<Integer>();
+        if(root == null) return result;
+        else {         
+            List<Integer> resultL = inorderTraversal(root.left);
+            List<Integer> resultR = inorderTraversal(root.right);
+            result.addAll(resultL);
+            result.add(root.val);
+            result.addAll(resultR);
+        }
+        return result;
+    }
+}
+{% endhighlight%}
+<h2><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank">Binary Tree Postorder Traversal</a></h2>
+<p>Given a binary tree, return the postorder traversal of its nodes' values</p>
+{% highlight java %}
+public class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+         List<Integer> result = new ArrayList<Integer>();
+        if(root == null) return result;
+        else {      
+            List<Integer> resultL = postorderTraversal(root.left);
+            List<Integer> resultR = postorderTraversal(root.right);
+            result.addAll(resultL);
+            result.addAll(resultR);
+            result.add(root.val);
+        }
+        return result;
+    }
+}
+{% endhighlight%}
