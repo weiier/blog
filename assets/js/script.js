@@ -13,10 +13,10 @@ if ($(window).width() <= 1280) {
 // Variables
     tag1       = $('.pl__all'),
     tag2       = $('.start'),
-    tag3       = $('.two'),
+    tag3       = $('.resume'),
     tag4       = $('.leetcode'),
-    tag5       = $('.fou'),
-    tag6       = $('.fiv');
+    tag5       = $('.job'),
+    tag6       = $('.note');
 var sidebar    = $('#sidebar'),
     container  = $('#post'),
     content    = $('#pjax'),

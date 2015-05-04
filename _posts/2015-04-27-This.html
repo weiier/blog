@@ -1,0 +1,61 @@
+---
+layout: post
+title: 函数中this的指向
+categories: note
+---
+<p>在阿里的面试中被问到了一个关于this指针指向的有趣问题，当时在面试官的提示下蒙混过去，回来之后又仔细研究了一番。</p>
+<p>先说面试官的问题，首先定义一个对象b，同时在页面中有一个dom节点button。代码如下</p>
+{% highlight js %}
+var b = {
+	id : 1;
+	c : function() {
+		console.log(this.id);
+	}
+}
+{% endhighlight%}
+{% highlight html %}
+<input type="button" id="button_1" value="click me">
+{% endhighlight%}
+<p>那么问题来了：</p>
+{% highlight js %}
+document.getElementById("button_1").onclick = b.c;
+{% endhighlight%}
+<p>当我们调用b.c()和上面的代码时，this的指向分别是什么。对于第二种调用，我们又如何改变this的指向为b</p>
+<h2>先谈谈this的指向</h2>
+<p>函数中this的指向一直是个不太理解的问题，网上也有很多的总结，大概来说，有一下几种：</p>
+<p>作为函数调用</p>
+{% highlight js %}
+function test(){};
+test();
+{% endhighlight%}
+<p>当通过这种方式调用时，函数的执行环境是全局环境，this自然指向window。</p>
+<p>作为成员方法调用</p>
+{% highlight js %}
+var b = {};
+b.c = function(){};
+b.c();
+{% endhighlight%}
+<p>当作为一个对象的方法调用时，函数的执行环境就变为了这个对象，this也就指向了拥有该方法的对象，即b对象。</p>
+<p>作为构造器调用</p>
+{% highlight js %}
+function show(val) {
+ this.value = val;
+};
+show.prototype.getVal = function() {
+ alert(this.value);
+};
+var func = new show(1);
+func.getVal(); // 输出1
+alert(func.value) // 输出1
+{% endhighlight%}
+<p>当作为构造器函数调用时，this指向构造器函数的实例对象。从上面的结果可以看出, 此时的this指向了func对象.</p>
+<p>通过apply和call调用</p>
+<p>通过调用apply()和call()，我们可以改变this指针的指向。在调用函数时传入的第一个参数将会被用作函数的执行环境，this也就指向了这个参数。apply和call不同的地方是，apply第二个参数只需传入参数数组，而call要一个个传入所有参数</p>
+<h2>this与dom操作事件的结合</h2>
+<p>经过以上分析，自然知道上面问题的第一种调用方式，是指向b的。那么第二种呢？通过给dom元素指定的onclick事件处理程序（即onclick指向的函数），被认为是元素的方法。这时候的事件处理程序是在元素的作用域内部运行的，this也就指向了当前的dom元素。那么如何将this的指向重新改为指向b呢？</p>
+{% highlight js %}
+document.getElementById("button_1").onclick = function() {
+	console.log(this.id); //输出button_1
+	b.c();				//输出 1
+}
+{% endhighlight%}
