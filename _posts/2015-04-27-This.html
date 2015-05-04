@@ -28,7 +28,16 @@ document.getElementById("button_1").onclick = b.c;
 function test(){};
 test();
 {% endhighlight%}
-<p>当通过这种方式调用时，函数的执行环境是全局环境，this自然指向window。</p>
+<p>当通过这种方式调用时，函数的执行环境是全局环境，this自然指向window。以下代码输出为window：</p>
+{% highlight js %}
+function a() {
+    function b() {
+        console.log(this);
+    }
+    b();
+}
+a();
+{% endhighlight%}
 <p>作为成员方法调用：</p>
 {% highlight js %}
 var b = {};
