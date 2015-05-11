@@ -67,11 +67,11 @@ $('#mobile-avatar').on('click', function(){
 $('.trProject').hover(function(e){
 		$target =$(e.target);
 		var i = $target.index();
-		$('.trDetail:eq('+i*3+')','.trDetail:eq('+(i*3+1)+')','.trDetail:eq('+(i*3+2)+')').show();
+		$('.p'+i).show();
 	},function(e){
 		$target =$(e.target);
 		var i = $target.index();
-		$('.trDetail:eq('+i*3+')','.trDetail:eq('+(i*3+1)+')','.trDetail:eq('+(i*3+2)+')').show();
+		$('.p'+i).hide();
 	}
 )
 
