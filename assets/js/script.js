@@ -64,7 +64,10 @@ $('#mobile-avatar').on('click', function(){
 });
 
 //tr hover event by weiier
-$('.trProject').hover(function(){
+$('.trProject').hover(function(e){
+		for(i in e){
+			console.log(i);
+		}
 		$('.trDetail').show();
 	},function(){
 		$('.trDetail').hide();
