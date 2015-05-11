@@ -117,7 +117,12 @@ a {
 	}
 
 	/*---table---*/
-	
+	.tdHeader{
+		width:150px;
+	}
+	.tdCenter{
+		text-align:center;
+	}
 	table {
 	  max-width: 100%;
 	  background-color: transparent;
