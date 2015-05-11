@@ -123,7 +123,9 @@ a {
 	
 	.trDetail{
 		display:none;
+		background-color: #c9302c;
 	}
+	
 	table {
 	  max-width: 100%;
 	  background-color: transparent;

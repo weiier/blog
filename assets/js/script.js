@@ -64,14 +64,24 @@ $('#mobile-avatar').on('click', function(){
 });
 
 //tr hover event by weiier
-$('.trProject').hover(function(e){
-		$target =$(e.target);
-		var i = $target.index();
-		$('.p'+i).show();
-	},function(e){
-		$target =$(e.target);
-		var i = $target.index();
-		$('.p'+i).hide();
+$('.trProject0').hover(function(){
+		$('.pro0').show();
+	},function(){
+		$('.pro0').hide();
+	}
+)
+
+$('.trProject1').hover(function(){
+		$('.pro1').show();
+	},function(){
+		$('.pro1').hide();
+	}
+)
+
+$('.trProject2').hover(function(){
+		$('.pro2').show();
+	},function(){
+		$('.pro2').hide();
 	}
 )
 
