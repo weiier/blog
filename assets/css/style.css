@@ -87,7 +87,7 @@ a {
 	#home a:hover:after{
 		transform:scaleX(1)
 	}
-  	#home .label {
+  	.label {
 	  display: inline;
 	  padding: .2em .6em .3em;
 	  font-size: 50%;
@@ -100,19 +100,19 @@ a {
 	  vertical-align: middle;
 	}
 	
-	#home .label:empty {
+	.label:empty {
 	  display: none;
 	}
 	
-	#home .label-primary {
+	.label-primary {
 	  background-color: #428bca;
 	}
 	
-	#home .label-success {
+	.label-success {
 	  background-color: #5cb85c;
 	}
 	
-	#home .label-info {
+	.label-info {
 	  background-color: #5bc0de;
 	}
 
@@ -120,9 +120,7 @@ a {
 	.tdHeader{
 		width:150px;
 	}
-	.tdCenter{
-		text-align:center;
-	}
+	
 	table {
 	  max-width: 100%;
 	  background-color: transparent;
