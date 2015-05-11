@@ -64,27 +64,28 @@ $('#mobile-avatar').on('click', function(){
 });
 
 //tr hover event by weiier
-$('.trProject0').hover(function(){
-		$('.pro0').show();
-	},function(){
-		$('.pro0').hide();
-	}
-)
+function bindEvent() {
+	$('.trProject0').hover(function(){
+			$('.pro0').show();
+		},function(){
+			$('.pro0').hide();
+		}
+	)
 
-$('.trProject1').hover(function(){
-		$('.pro1').show();
-	},function(){
-		$('.pro1').hide();
-	}
-)
+	$('.trProject1').hover(function(){
+			$('.pro1').show();
+		},function(){
+			$('.pro1').hide();
+		}
+	)
 
-$('.trProject2').hover(function(){
-		$('.pro2').show();
-	},function(){
-		$('.pro2').hide();
-	}
-)
-
+	$('.trProject2').hover(function(){
+			$('.pro2').show();
+		},function(){
+			$('.pro2').hide();
+		}
+	)
+}
 
 // Pjax
 $(document).pjax('#avatar, #mobile-avatar, .pl__all', '#pjax', { fragment: '#pjax', timeout: 10000 });
@@ -116,7 +117,8 @@ function afterPjax() {
 
   // Embed codepen after pjax
   CodePenEmbed.init();
-
+  // if the page is resume
+  bindEvent();
   // Generate post TOC for h1 h2 and h3
   var toc = $('#post__toc-ul');
   // Empty TOC and generate an entry for h1
