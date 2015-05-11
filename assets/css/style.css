@@ -121,6 +121,9 @@ a {
 		width:150px;
 	}
 	
+	.trDetail{
+		display:none;
+	}
 	table {
 	  max-width: 100%;
 	  background-color: transparent;

@@ -63,6 +63,15 @@ $('#mobile-avatar').on('click', function(){
   $('#sidebar, #pjax, #icon-arrow').addClass('fullscreen');
 });
 
+//tr hover event by weiier
+$('.trProject').hover(function(){
+		$('.trDetail').show();
+	},function(){
+		$('.trDetail').hide();
+	}
+)
+
+
 // Pjax
 $(document).pjax('#avatar, #mobile-avatar, .pl__all', '#pjax', { fragment: '#pjax', timeout: 10000 });
 $(document).on({
