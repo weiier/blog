@@ -66,10 +66,12 @@ $('#mobile-avatar').on('click', function(){
 //tr hover event by weiier
 $('.trProject').hover(function(e){
 		$target =$(e.target);
-		console.log($target.index());
-		$('.trDetail').show();
-	},function(){
-		$('.trDetail').hide();
+		var i = $target.index();
+		$('.trDetail:eq('+i*3+')','.trDetail:eq('+(i*3+1)+')','.trDetail:eq('+(i*3+2)+')').show();
+	},function(e){
+		$target =$(e.target);
+		var i = $target.index();
+		$('.trDetail:eq('+i*3+')','.trDetail:eq('+(i*3+1)+')','.trDetail:eq('+(i*3+2)+')').show();
 	}
 )
 
