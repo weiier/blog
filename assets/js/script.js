@@ -66,7 +66,7 @@ $('#mobile-avatar').on('click', function(){
 //tr hover event by weiier
 $('.trProject').hover(function(e){
 		$target =$(e.target);
-		console.log($target.index);
+		console.log($target.index());
 		$('.trDetail').show();
 	},function(){
 		$('.trDetail').hide();
