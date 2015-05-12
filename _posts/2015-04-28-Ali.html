@@ -13,7 +13,8 @@ categories: interview
 <ul>
 <li>盒子模型，height100px，padding10px，border3px，问是什么样子的</li>
 <p>拿笔画了一下，很奇怪没有问width，因为width是有兼容性问题的，主动和他说了如果在ie下width是包含padding和border的。追问如何实现height、border、padding一共100px，这个不确定了，就蒙了个border-box（似乎是对的）。</p>
-<li>{% highlight html %}<ul><li><ul><li>...</li></ul></li></ul>{% endhighlight%}问如何取到第一个ul下面的li，而不取子ul下的li</li>
+<li>css选择器，问如何取到第一个ul下面的li，而不取子ul下的li</li>
+{% highlight html %}<ul><li><ul><li>...</li></ul></li></ul>{% endhighlight%}
 <p>是的我不会...ul li｛｝这样是会选到第一个ul下所有的li的，不过面试官也没有让我太纠结，和我说这些回去一查就知道了就放过我了。查了下应该是 ul>li{}</p>
 <li>移动端怎么识别横屏或者竖屏去写不同的样式</li>
 <p>媒体查询@media,说了这个以后面试官就没有仔细再问。终于体会到了通关密码的感觉...</p>
