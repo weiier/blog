@@ -1,0 +1,35 @@
+---
+layout: post
+title: Windows下f8app环境搭建及一些注意事项
+categories: notes
+---
+<p>F8app即Facebook在f8开发者大会上使用的“参会小助手”性质的app，使用React native搭建，而且还开放了源码，在官方网站上发布了此app的开发教程。根据教程，我们尝试搭建在windows系统下F8app的安卓运行环境。</p>
+<li>源码地址：https://github.com/fbsamples/f8app/</li>
+<li>教程官网：http://makeitopen.com/或http://makeitopen.github.io</li>
+<li>教程中文版：https://github.com/pockry/Building-the-F8-2016-App-CN</li>
+<p>我们参考教程中的附录1，本地运行App，去搭建整个环境。</>
+<h2>准备</h2>
+<p>在搭建f8app的开发环境之前，我们必须安装一些必要的东西。依次有git、node、mongoDB、parse-server、React Native、Android SDK等。安装时也会有一些注意事项。</p>
+<ul>
+	<li>git:</li>
+	<p>下载git的windows客户端，安装。安装时需要注意，要选择windows下命令行也能使用git命令。（在f8app的npm install过程中，会在windows命令行环境下调用git下载数据）</p>
+	<li>nvm及node：</li>
+	<p>nvm是node的版本管理工具，在开发环境下我们有可能会在多个node版本间切换。windows环境下要使用nvm-windows，地址：https://github.com/coreybutler/nvm-windows。通过nvm，我们安装node和npm（高版本node中自带npm），npm是包管理工具，我们可以用npm install去下载其他js包或插件。</p>
+	<li>MongoDB：</li>
+	<p>官网下载mongoDB并安装。安装后在安装目录的bin目录下运行mongod –dbpath [filepath] 命令指定数据目录并启动，之后我们访问http://localhost:27017 可以访问则证明mongo安装并成功启动。之后我们可以通过node去连接MongoDB，并做些简单的测试。过程参见文档：https://docs.mongodb.org/getting-started/node/client/</p>
+	<li>parse-server（不确定是否必须提前安装）：</li>
+	<p>通过npm安装到全局环境：https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide</p>
+	<li>React Native运行环境：</li>
+	<p>首先是windows下安卓环境的配置，过程参见：http://bbs.reactnative.cn/topic/10/%E5%9C%A8windows%E4%B8%8B%E6%90%AD%E5%BB%BAreact-native-android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83</p>
+  <p>需要安装jdk、android SDK、（visual studio及python不知是否必须）使用android的SDK Manager时注意两点:build-tools要安装上版本23.0.2,否则在f8app的构建过程中会报错；也需要安装Google Repository（在extras）</p>
+	<p>通过npm去安装react-native-cli（命令行），之后我们可以运行init，初始化一个react-native项目去测试。</p>
+</ul>
+<h2>搭建</h2>
+<p>最后，我们参考一开始的附录，开始构建f8项目环境。使用git clone下源码后，使用npm install去安装。在这步我折腾了一天多时间…因为没有科学的上网工具，转而使用淘宝镜像，cnpm。但是在安装过程中会报错，虽然最后提示all packages installed，但是运行npm start时会报错，还是react-native的源码文件有错。最后只能放弃cnpm，多试了几遍npm install才成功。所以，没有科学的上网工具你只能看人品和天意了。</p>
+<p>Install完成后，我们要在mongo的bin目录另起cmd下运行mongod命令启动mongodb，之后f8项目目录运行npm start，成功的话会提示服务已启动（parse和graphQL服务）；之后再在当前目录新起cmd运行import-data导入数据；导入成功后，react-native start运行packager；最后，再起一个cmd（加上之前的一共四个…）运行react-native run-android命令，开始构建android项目并最终安装app到真机或者模拟器中。最后，运行adb reverse…确保app可以获取到数据。模拟器推荐使用genymotion，或是模拟安卓5.0及以上版本。在BlueStacks中运行的安卓4.4版本下，存在获取不到数据的问题。</p>
+<ul>
+<p>其他参考：</p>
+<li>http://reactnative.cn/</li>
+<li>https://facebook.github.io/react-native/docs/getting-started.html</li>
+<li>https://facebook.github.io/react-native/docs/android-setup.html</li>
+</ul>
